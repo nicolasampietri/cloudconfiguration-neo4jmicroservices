@@ -45,4 +45,6 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://discoverCloudServer:1111/eureka/
+      #defaultZone: http://discoverCloudServer:1111/eureka/
+      #Amazon trial
+      defaultZone: http://default-environment.xh4bza2vjp.us-west-2.elasticbeanstalk.com/eureka/
