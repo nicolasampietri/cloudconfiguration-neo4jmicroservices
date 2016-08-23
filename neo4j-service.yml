@@ -4,7 +4,7 @@ error:
 
 # HTTP Server
 server:
-  port: 2227   # HTTP (Tomcat) port
+  port: 12227   # HTTP (Tomcat) port
 
 # Discovery Server Access
 #  1. Define URL of registration server (defaultZone)
