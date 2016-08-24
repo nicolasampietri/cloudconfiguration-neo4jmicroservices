@@ -16,7 +16,8 @@ server:
 eureka:
   datacenter: cloud
   instance:
-    preferIpAddress : true  
+    hostname : neo4jms-service.us-west-2.elasticbeanstalk.com
+    #preferIpAddress : true  
   client:
     serviceUrl:
       #defaultZone: http://discoverCloudServer:1111/eureka/
