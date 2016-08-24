@@ -23,7 +23,8 @@ eureka:
     healthcheck:
       enabled: true
     instance:
-      preferIpAddress : true
-      #metadataMap:
+      #preferIpAddress : true
+      metadataMap:
+        instanceId: neo4jms-service.us-west-2.elasticbeanstalk.com
       #  instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-      #leaseRenewalIntervalInSeconds: 30   # DO NOT DO THIS IN PRODUCTION
+      leaseRenewalIntervalInSeconds: 30   # DO NOT DO THIS IN PRODUCTION
