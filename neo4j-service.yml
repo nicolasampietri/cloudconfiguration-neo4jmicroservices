@@ -24,6 +24,6 @@ eureka:
       enabled: true
     instance:
       preferIpAddress : true
-      metadataMap:
-        instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-      leaseRenewalIntervalInSeconds: 30   # DO NOT DO THIS IN PRODUCTION
+      #metadataMap:
+      #  instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+      #leaseRenewalIntervalInSeconds: 30   # DO NOT DO THIS IN PRODUCTION
