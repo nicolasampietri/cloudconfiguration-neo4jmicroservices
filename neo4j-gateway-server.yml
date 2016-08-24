@@ -39,6 +39,7 @@ endpoints:
     sensitive: false
 
 eureka:
+  datacenter: cloud
   instance:
     hostname: gatewayCloudServer
   client:
