@@ -14,6 +14,7 @@ server:
 #     NOTE-2: Syntax ${x:${y}} = use $x if set, otherwise use $y
 #  3. Reduce lease-renewal time so processes register more quickly
 eureka:
+  datacenter: cloud
   client:
     serviceUrl:
       #defaultZone: http://discoverCloudServer:1111/eureka/
