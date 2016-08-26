@@ -1,0 +1,33 @@
+# Map the error path to error template (for Thymeleaf)
+error:
+  path: /error
+
+# HTTP Server
+server:
+  port: 80   # HTTP (Tomcat) port
+
+# Discovery Server Access
+#  1. Define URL of registration server (defaultZone)
+#  2. Give the process a unique instance id - allows multiple instances on SAME host
+#     NOTE-1: spring.application.instance_id is only set when run on Cloud Foundry,
+#             so we fallback on the server-port when it is not defined
+#     NOTE-2: Syntax ${x:${y}} = use $x if set, otherwise use $y
+#  3. Reduce lease-renewal time so processes register more quickly
+eureka:
+  datacenter: cloud
+  instance:
+    hostname : neo4jms-service.us-west-2.elasticbeanstalk.com
+    #preferIpAddress : true  
+  client:
+    serviceUrl:
+      #defaultZone: http://discoverCloudServer:1111/eureka/
+      #Amazon trial
+      defaultZone: http://default-environment.xh4bza2vjp.us-west-2.elasticbeanstalk.com/eureka/
+    healthcheck:
+      enabled: true
+    instance:
+      #preferIpAddress : true
+      metadataMap:
+        instanceId: neo4jms-service.us-west-2.elasticbeanstalk.com
+      #  instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+leaseRenewalIntervalInSeconds: 30   # DO NOT DO THIS IN PRODUCTION
