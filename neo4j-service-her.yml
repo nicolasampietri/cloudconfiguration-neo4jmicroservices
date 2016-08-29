@@ -17,6 +17,7 @@ eureka:
   instance:
     #hostname : neo4jms-service.us-west-2.elasticbeanstalk.com
     hostname: ${DOMAIN_NAME}
+    nonSecurePort: 80
     #preferIpAddress : true  
   client:
     serviceUrl:
