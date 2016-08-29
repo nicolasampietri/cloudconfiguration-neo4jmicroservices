@@ -15,7 +15,8 @@ server:
 eureka:
   datacenter: cloud
   instance:
-    hostname : neo4jms-service.us-west-2.elasticbeanstalk.com
+    #hostname : neo4jms-service.us-west-2.elasticbeanstalk.com
+    hostname: ${DOMAIN_NAME}
     #preferIpAddress : true  
   client:
     serviceUrl:
@@ -30,6 +31,11 @@ eureka:
         instanceId: neo4jms-service.us-west-2.elasticbeanstalk.com
       #  instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
 leaseRenewalIntervalInSeconds: 30 # DO NOT DO THIS IN PRODUCTION
+password: ${USER_PASSWORD:password}
+security:
+  user:
+    password: ${eureka.password}
+
 
 #eureka:
 #datacenter: cloud
