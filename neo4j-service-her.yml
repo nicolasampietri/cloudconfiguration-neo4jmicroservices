@@ -14,20 +14,16 @@ server:
 #     NOTE-2: Syntax ${x:${y}} = use $x if set, otherwise use $y
 #  3. Reduce lease-renewal time so processes register more quickly
 eureka:
-  datacenter: cloud
-  instance:
-    hostname : neo4jms-service.us-west-2.elasticbeanstalk.com
-    #preferIpAddress : true  
+datacenter: cloud
   client:
     serviceUrl:
-      #defaultZone: http://discoverCloudServer:1111/eureka/
-      #Amazon trial
-      defaultZone: http://default-environment.xh4bza2vjp.us-west-2.elasticbeanstalk.com/eureka/
-    healthcheck:
-      enabled: true
-    instance:
-      #preferIpAddress : true
-      metadataMap:
-        instanceId: neo4jms-service.us-west-2.elasticbeanstalk.com
-      #  instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}}
-leaseRenewalIntervalInSeconds: 30 # DO NOT DO THIS IN PRODUCTION
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
+      #defaultZone: http://neo4jmicroservices-discovery.herokuapp.com/eureka/
+  instance:
+    hostname: ${DOMAIN_NAME}
+    #hostname: localhost
+    nonSecurePort: 80
+password: ${USER_PASSWORD:password}
+security:
+  user:
+    password: ${eureka.password}
