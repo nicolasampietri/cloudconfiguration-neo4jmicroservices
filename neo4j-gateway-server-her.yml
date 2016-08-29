@@ -1,0 +1,53 @@
+server:
+  port: ${PORT}
+
+zuul:
+  routes:
+    my_service :
+      path : /**
+      serviceId : neo4j-service
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+        isolation:
+          thread : 
+            timeoutInMilliseconds: 60000
+
+ribbon:
+  ReadTimeout : 6000
+
+my_service:
+  ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+sidecar:
+  port: 1234
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+eureka:
+  datacenter: cloud
+  instance:
+    hostname: ${DOMAIN_NAME}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      #defaultZone: http://discoverCloudServer:1111/eureka/
+      #Amazon trial
+      #defaultZone: http://default-environment.xh4bza2vjp.us-west-2.elasticbeanstalk.com/eureka/
+      #Heroku
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
