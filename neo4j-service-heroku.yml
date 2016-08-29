@@ -1,18 +1,18 @@
 eureka:
   client:
     serviceUrl:
-      #defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
-      defaultZone: http://neo4jmicroservices-discovery.herokuapp.com/eureka/
-#security:
-#  user:
-#    password: ${eureka.password}
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
+      #defaultZone: http://neo4jmicroservices-discovery.herokuapp.com/eureka/
+security:
+  user:
+    password: ${eureka.password}
 
 #---
-#spring:
-#  profiles: heroku
-#eureka:
+spring:
+  profiles: heroku
+eureka:
   instance:
-    #hostname: ${DOMAIN_NAME}
+    hostname: ${DOMAIN_NAME}
     hostname: localhost
     nonSecurePort: 80
-  #password: ${USER_PASSWORD:password}
+  password: ${USER_PASSWORD:password}
