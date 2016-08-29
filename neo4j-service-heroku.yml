@@ -13,6 +13,6 @@ spring:
 eureka:
   instance:
     hostname: ${DOMAIN_NAME}
-    hostname: localhost
+    #hostname: localhost
     nonSecurePort: 80
   password: ${USER_PASSWORD:password}
