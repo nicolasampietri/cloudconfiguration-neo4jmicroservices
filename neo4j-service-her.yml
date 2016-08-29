@@ -3,7 +3,7 @@ error:
 
 # HTTP Server
 server:
-  port: 10280   # HTTP (Tomcat) port
+  port: ${PORT}   # HTTP (Tomcat) port
 
 # Discovery Server Access
 #  1. Define URL of registration server (defaultZone)
