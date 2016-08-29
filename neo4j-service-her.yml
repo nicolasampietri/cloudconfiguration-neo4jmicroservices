@@ -21,7 +21,7 @@ eureka:
     serviceUrl:
       #defaultZone: http://discoverCloudServer:1111/eureka/
       #Amazon trial
-      defaultZone: http://default-environment.xh4bza2vjp.us-west-2.elasticbeanstalk.com/eureka/
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
     healthcheck:
       enabled: true
     instance:
